@@ -2,11 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
-const { MONGO_HOST, MONGO_USERNAME, MONGO_PASSWORD } = process.env;
+import events from './routes/events'
 
+const { MONGO_HOST, MONGO_USERNAME, MONGO_PASSWORD } = process.env;
 const app = express();
 
-import events from './routes/events'
 
 const port = 3000;
 
