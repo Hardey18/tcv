@@ -1,13 +1,17 @@
-import "./App.css";
-
-import React from "react";
+import React from 'react'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './store';
+import RouteApp from './route'
 
 export default function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <p className="header">Vite + React + Typescript</p>
-            </header>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <RouteApp />
+                </BrowserRouter>
+            </Provider>
         </div>
     );
 }
