@@ -4,3 +4,7 @@
 
     --link: #2a0b0b;
 }
+
+* {
+    box-sizing: border-box;
+}
