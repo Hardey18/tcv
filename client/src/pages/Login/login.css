@@ -9,9 +9,13 @@
 }
 
 .login-title {
+    margin-top: 2rem;
     margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(32, 133, 228);
 }
-
 .form {
     width: 80%;
 }

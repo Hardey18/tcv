@@ -5,6 +5,8 @@ import { addEvent, fetchEvents, logout } from '../../redux/action';
 import Select from 'react-select';
 import Modal from '../../components/Modal/Modal';
 import './events.css'
+import Card from '../../components/Card/Card';
+import InputSearch from '../../components/InputSearch/InputSearch';
 
 const options: any = [
   { value: true, label: "True" },
@@ -14,6 +16,7 @@ const options: any = [
 function Events() {
   const [openModal, setOpenModal] = useState(false)
   const [singleEvent, setSingleEvent] = useState(null)
+  const [query, setQuery] = useState("")
   const [formState, setFormState] = useState({
     title: "",
     description: "",
@@ -48,10 +51,8 @@ function Events() {
   const handleLogout = () => {
     dispatch(logout())
   }
-  console.log("Result", token)
   return (<>
   <div className="event-container">
-    <div className="event-title">Events</div>
     {token && 
       <form className="form">
         <div>
@@ -93,11 +94,25 @@ function Events() {
         />
       }
       </div>
+      <div className="event-title">List of All Events</div>
+      <InputSearch
+        type="text"
+        placeholder="Search by Category"
+        handleChange={event => setQuery(event.target.value)}
+      />
       <div>
-        {events.slice(0).reverse().map((result: any) => (
+        {events.filter(post => {
+          if(query === '') {
+            return post;
+          } else if (post.category.toLowerCase().includes(query.toLowerCase())) {
+            return post
+          }
+        }).slice(0).reverse().map((result: any) => (
           <div className="hotlist" onClick={() => showSingleEvent(result._id)} key={result._id}>
-            <div>Title: {result.title}</div>  
-            <div>Category: {result.category}</div>  
+            <Card 
+              title={result.title}
+              category={result.category}
+            />
           </div>
           ))}
       </div>

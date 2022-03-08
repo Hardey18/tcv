@@ -8,7 +8,12 @@
 }
 
 .event-title {
+    margin-top: 2rem;
     margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(32, 133, 228);
 }
 
 .form {
@@ -64,6 +69,11 @@
 .hotlist {
     margin-bottom: 3rem;
     text-align: left;
+}
+
+.alert-text {
+    background: red;
+    position: absolute;
 }
 
 @media screen and (max-width: 560px) {

@@ -1,0 +1,21 @@
+.modal-container {
+    background: whitesmoke;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.modal-inner {
+    width: 80%;
+}
+.modal-header {
+    font-size: 2rem;
+    color: rgb(32, 133, 228);
+}

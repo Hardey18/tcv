@@ -1,17 +1,21 @@
 import React from 'react'
+import { format } from 'fecha';
+import './modal.css'
 
 function Modal({singleEvent, setOpenModal}: any) {
     const {title, description, category, isVirtual, date, address} = singleEvent;
   return (
-    <div style={{width: '100vw', height: '100vh', position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', background: 'whitesmoke', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-        <div>Modal Content</div>
-        <div>{title}</div>   
-        <div>{description}</div>   
-        <div>{category}</div>   
-        <div>{isVirtual}</div>   
-        <div>{date}</div>   
-        <div>{address}</div>
-        <button onClick={() => setOpenModal(false)}>Close Modal</button> 
+    <div className="modal-container">
+      <div className="modal-inner">
+        <div className="modal-header">Modal Content</div>
+        <div>Title: {title}</div>   
+        <div>Description: {description}</div>   
+        <div>Category: {category}</div>   
+        <div>Virtual: {isVirtual ? "Yes" : "No"}</div>
+        <div>Date: {format(new Date(date), 'dddd MMMM Do, YYYY')}</div>   
+        <div>Address: {address}</div>
+        <button onClick={() => setOpenModal(false)}>Close</button> 
+      </div>
     </div>
   )
 }

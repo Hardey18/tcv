@@ -12,14 +12,18 @@
     },
     "dependencies": {
         "axios": "^0.26.0",
+        "fecha": "^4.2.1",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
+        "react-moment": "^1.1.1",
         "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.2",
         "react-select": "^5.2.2",
         "react-validation": "^3.0.7",
         "redux": "^4.1.2",
         "redux-thunk": "^2.4.1",
+        "sweetalert2": "^11.4.4",
+        "sweetalert2-react-content": "^4.2.0",
         "validator": "^13.7.0"
     },
     "devDependencies": {
