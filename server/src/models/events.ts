@@ -10,8 +10,6 @@ const Events = mongoose.model('Events', new mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: 5,
-    maxlength: 50,
     required: true
   },
   category: {
@@ -21,12 +19,10 @@ const Events = mongoose.model('Events', new mongoose.Schema({
     date: {
         type: Date,
         required: true,
-        default: Date.now
       },
     isVirtual: {
         type: Boolean,
         required: true,
-        default: false
     },
     address: {
         type: String,
@@ -39,8 +35,10 @@ const Events = mongoose.model('Events', new mongoose.Schema({
 function validateEvents(event: any) {
     const schema = Joi.object({
         title: Joi.string().min(5).max(50).required(),
-        description: Joi.string().min(5).max(50).required(),
+        description: Joi.string().required(),
         category: Joi.string().required(),
+        isVirtual: Joi.boolean().required(),
+        date: Joi.date().required(),
         address: Joi.string().min(5).max(50).required(),
     });
     return schema.validate(event)
