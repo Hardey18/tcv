@@ -2,7 +2,7 @@ import React from "react";
 
 import "./inputsearch.css";
 
-function InputSearch({ handleChange, placeholder, type }) {
+function InputSearch({ handleChange, placeholder, type }: any) {
   return (
     <input
       className="input-search"

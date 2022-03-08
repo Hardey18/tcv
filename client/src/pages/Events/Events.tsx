@@ -16,7 +16,7 @@ const options: any = [
 function Events() {
   const [openModal, setOpenModal] = useState(false)
   const [singleEvent, setSingleEvent] = useState(null)
-  const [query, setQuery] = useState("")
+  const [query, setQuery]: any = useState("")
   const [formState, setFormState] = useState({
     title: "",
     description: "",
@@ -39,12 +39,12 @@ function Events() {
 
   const { events, token }: any = useSelector((state) => state);
 
-  const handleAddEvent = (e) => {
+  const handleAddEvent = (e: any) => {
     e.preventDefault();
     dispatch(addEvent(formState));
   } 
   const showSingleEvent = (id: string) => {
-    const currentEvent = events.find((event: { id: any; }) => event._id === id);
+    const currentEvent = events.find((event: any) => event._id === id);
     setSingleEvent(currentEvent);
     setOpenModal(true);
   }
@@ -98,10 +98,10 @@ function Events() {
       <InputSearch
         type="text"
         placeholder="Search by Category"
-        handleChange={event => setQuery(event.target.value)}
+        handleChange={(event: { target: { value: any; }; }) => setQuery(event.target.value)}
       />
       <div>
-        {events.filter(post => {
+        {events.filter((post: { category: string; }) => {
           if(query === '') {
             return post;
           } else if (post.category.toLowerCase().includes(query.toLowerCase())) {
