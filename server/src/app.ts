@@ -22,6 +22,6 @@ app.use(cors())
 app.use('/events', events);
 app.use('/auth', auth);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });

@@ -55,7 +55,6 @@ export const loginSuccess = (payload: any) => {
 export const logoutSuccess = () => {
     return {
         type: actionTypes.LOGOUT,
-        // payload
     }
 }
 const fetchSuccess = (payload: any) => {
